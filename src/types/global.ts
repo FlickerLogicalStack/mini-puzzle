@@ -1,8 +1,8 @@
-import type { create_engine_context } from '../engine/engine';
-import type { Board } from '../game/entities/board/board';
-import type { GridSpec } from '../game/entities/board/board.layout';
-import type { Camera } from '../game/entities/camera/camera';
-import type { Hud } from '../game/entities/hud/hud';
+import type { create_engine_context } from '@src/core/engine/engine';
+import type { Board } from '@src/core/board/board';
+import type { GridSpec } from '@src/core/board/board.layout';
+import type { Camera } from '@src/core/camera/camera';
+import type { DebugHud } from '@src/core/debug_hud/debug_hud';
 
 declare global {
   namespace PUZZLE {
@@ -22,7 +22,7 @@ declare global {
       source_height: number;
       board: Board | null;
       camera: Camera;
-      hud: Hud;
+      debug_hud: DebugHud;
       drag: DragState;
       target: boolean;
       solved: boolean;
@@ -30,9 +30,5 @@ declare global {
       elapsed_ms: number;
       grid: GridSpec;
     };
-  }
-
-  interface Window {
-    __ENGINE__?: { engine: PUZZLE.EngineContext; game: unknown };
   }
 }

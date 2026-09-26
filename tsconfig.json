@@ -6,6 +6,11 @@
     "moduleDetection": "force",
     "types": ["bun"],
 
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"]
+    },
+
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,

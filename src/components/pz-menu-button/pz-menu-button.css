@@ -1,0 +1,32 @@
+.game-menu {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-left));
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(96, 121, 242, 0.35);
+  border-radius: 8px;
+  background: rgba(10, 14, 22, 0.72);
+  color: #cfd6e6;
+  font: inherit;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.game-menu svg {
+  display: block;
+  pointer-events: none;
+}
+
+.game-menu:hover {
+  background: rgba(96, 121, 242, 0.22);
+}
+
+.game-menu[hidden] {
+  display: none;
+}

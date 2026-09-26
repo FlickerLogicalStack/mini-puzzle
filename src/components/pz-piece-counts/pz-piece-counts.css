@@ -1,0 +1,32 @@
+pz-piece-counts {
+  display: contents;
+}
+
+.menu__counts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.menu__count {
+  padding: 4px 10px;
+  border: 1px solid rgba(96, 121, 242, 0.3);
+  border-radius: 6px;
+  background: rgba(96, 121, 242, 0.12);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.menu__count--active {
+  background: rgba(96, 121, 242, 0.35);
+  border-color: #6079f2;
+}
+
+.menu__hint {
+  font-size: 12px;
+  opacity: 0.6;
+  text-align: center;
+  min-height: 1lh;
+}

@@ -1,7 +1,25 @@
 import { file } from 'bun';
 import { join, sep } from 'path';
 
-const PORT = Number(process.env.PORT ?? 3000);
+const resolve_port = (): number => {
+  const args = process.argv.slice(2);
+  const flag_index = args.findIndex(arg => arg === '--port' || arg === '-p');
+
+  if (flag_index !== -1 && args[flag_index + 1] !== undefined) {
+    return Number(args[flag_index + 1]);
+  }
+
+  const positional = args.find(arg => /^\d+$/.test(arg));
+
+  if (positional !== undefined) {
+    return Number(positional);
+  }
+
+  return Number(process.env.PORT ?? 3000);
+};
+
+const requested_port = resolve_port();
+const PORT = Number.isFinite(requested_port) && requested_port > 0 ? requested_port : 3000;
 const ROOT = join(import.meta.dir, 'docs');
 
 const MIME: Record<string, string> = {
@@ -11,6 +29,11 @@ const MIME: Record<string, string> = {
   json: 'application/json',
   ico: 'image/x-icon',
   png: 'image/png',
+  jpg: 'image/jpeg',
+  jpeg: 'image/jpeg',
+  webp: 'image/webp',
+  gif: 'image/gif',
+  avif: 'image/avif',
   svg: 'image/svg+xml',
   txt: 'text/plain',
 };
